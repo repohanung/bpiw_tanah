@@ -1,0 +1,24 @@
+
+module mynginx 1.0;
+
+require {
+	type user_tmp_t;
+	type unconfined_t;
+	type httpd_t;
+	type var_t;
+	class sock_file write;
+	class unix_stream_socket connectto;
+	class file { getattr open read };
+}
+
+#============= httpd_t ==============
+
+#!!!! The file '/var/www/bpiw_tanah/tmp/sockets/bpiw_tanah_net_unicorn.sock' is mislabeled on your system.  
+#!!!! Fix with $ restorecon -R -v /var/www/bpiw_tanah/tmp/sockets/bpiw_tanah_net_unicorn.sock
+allow httpd_t unconfined_t:unix_stream_socket connectto;
+
+#!!!! This avc is allowed in the current policy
+allow httpd_t user_tmp_t:sock_file write;
+
+#!!!! This avc is allowed in the current policy
+allow httpd_t var_t:file { getattr open read };
