@@ -220,7 +220,7 @@ gem 'videojs_rails', '4.12.14'
 gem 'virtus', '1.0.5'
 gem 'warden', '1.2.6'
 gem 'websocket-driver','0.7.0'
-gem 'websocket-extensions', '0.1.3'
+gem 'websocket-extensions', '0.1.5'
 #gem 'will_paginate', '3.1.6'
 
 group :development do
